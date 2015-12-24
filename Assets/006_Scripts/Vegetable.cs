@@ -16,7 +16,7 @@ public class Vegetable : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetMouseButtonDown(0))
+		if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
 		{
 			Ray m_Ray;
 			m_Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -33,10 +33,10 @@ public class Vegetable : MonoBehaviour {
 			}
 		}
 		
-		if (Input.GetMouseButtonUp(0))
+		if (Input.GetMouseButtonUp(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
 		{
 			time = Time.time - time;
-			if (clicked = true && time < 0.2f)
+			if (clicked = true && time < 0.1f)
 			{
 				Ray m_Ray;
 				m_Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
