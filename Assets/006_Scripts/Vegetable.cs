@@ -8,6 +8,13 @@ public class Vegetable : MonoBehaviour {
 	private bool clicked;
 	private float time;
 
+	private int fingerID = -1;
+	private void Awake(){
+		#if !UNITY_EDITOR
+		fingerID = 0;
+		#endif
+	}
+
 	void OnEnable(){
 		iTween.ScaleTo(gameObject, iTween.Hash("x", 1, "y", 1, "z", 1, "easeType", "easeOutBounce"));
 	}
@@ -16,7 +23,7 @@ public class Vegetable : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+		if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(fingerID))
 		{
 			Ray m_Ray;
 			m_Ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -33,7 +40,7 @@ public class Vegetable : MonoBehaviour {
 			}
 		}
 		
-		if (Input.GetMouseButtonUp(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject())
+		if (Input.GetMouseButtonUp(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(fingerID))
 		{
 			time = Time.time - time;
 			if (clicked = true && time < 0.1f)

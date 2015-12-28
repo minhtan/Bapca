@@ -7,7 +7,7 @@ public class BacaTargetControl : TargetControl {
 	public GameObject[] vegetables;
 	public GameObject pnlInfo;
 	public GameObject canvas;
-	public Toggle[] toggles;
+	public Toggle toggle;
 
 	#region MONO
 	void Start () {
@@ -41,7 +41,7 @@ public class BacaTargetControl : TargetControl {
 
 	#region additions methods
 	private void ResetToggles(){
-		toggles [1].isOn = true;
+		toggle.isOn = true;
 	}
 
 	private void HideVegetables(){
@@ -63,7 +63,9 @@ public class BacaTargetControl : TargetControl {
 
 	public void SelectVegetable(int index){
 		for (int i = 0; i < vegetables.Length; i++) {
-			vegetables[i].SetActive(false);
+			if(vegetables[i].activeSelf){
+				vegetables[i].SetActive(false);
+			}
 		}
 		vegetables[index].SetActive(true);
 		ResetWithoutVegetables();
