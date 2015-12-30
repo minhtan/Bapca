@@ -23,6 +23,10 @@ public class Vegetable : MonoBehaviour {
 	}
 
 	void Update () {
+
+	}
+
+	void CheckInput(){
 		if (Input.GetMouseButtonDown(0) && !UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(fingerID))
 		{
 			Ray m_Ray;
@@ -60,4 +64,5 @@ public class Vegetable : MonoBehaviour {
 			}
 		}
 	}
+
 }
