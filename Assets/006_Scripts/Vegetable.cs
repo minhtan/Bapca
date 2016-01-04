@@ -16,7 +16,7 @@ public class Vegetable : MonoBehaviour {
 	}
 
 	void OnEnable(){
-		iTween.ScaleTo(gameObject, iTween.Hash("x", 1, "y", 1, "z", 1, "easeType", "easeOutBounce"));
+		iTween.ScaleTo(gameObject, iTween.Hash("x", 1, "y", 1, "z", 1, "easeType", "easeOutBounce", "time", 0.75f));
 	}
 	void OnDisable(){
 		transform.localScale = Vector3.zero;

@@ -8,6 +8,7 @@ public class BacaTargetControl : TargetControl {
 	public GameObject pnlInfo;
 	public GameObject canvas;
 	public Toggle toggle;
+	public ToggleGroup toggleGroupUI;
 
 	#region MONO
 	void Start () {
@@ -35,11 +36,16 @@ public class BacaTargetControl : TargetControl {
 	}
 
 	public void ResetWithoutVegetables(){
+		SwitchOffToggleGroupUI ();
 		base.ResetObject ();
 		HideDetails ();
 	}
 
 	#region additions methods
+	private void SwitchOffToggleGroupUI(){
+		toggleGroupUI.SetAllTogglesOff ();
+	}
+
 	private void ResetToggles(){
 		toggle.isOn = true;
 	}

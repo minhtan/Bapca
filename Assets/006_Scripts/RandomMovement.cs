@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEditor;
 
 public class RandomMovement : MonoBehaviour {
 	[Range(1.0f, 20.0f)]
